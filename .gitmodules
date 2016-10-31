@@ -15,3 +15,10 @@
 	url = ../qtimageformats.git
 	branch = 5.7
 	status = addon
+[submodule "qttools"]
+	depends = qtbase
+	recommends = qtdeclarative qtactiveqt qtwebkit
+	path = qttools
+	url = ../qttools.git
+	branch = dev
+	status = essential
