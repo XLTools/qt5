@@ -1,17 +1,17 @@
 [submodule "qtbase"]
 	path = qtbase
 	url = ../qtbase.git
-	branch = 5.7
+	branch = dev
 	status = essential
 [submodule "qtsvg"]
 	depends = qtbase
 	path = qtsvg
 	url = ../qtsvg.git
-	branch = 5.7
+	branch = dev
 	status = addon
 [submodule "qtimageformats"]
 	depends = qtbase
 	path = qtimageformats
 	url = ../qtimageformats.git
-	branch = 5.7
+	branch = dev
 	status = addon

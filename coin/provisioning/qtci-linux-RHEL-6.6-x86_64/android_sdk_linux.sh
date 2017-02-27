@@ -35,13 +35,13 @@
 
 # This script install Android sdk and ndk.
 
-# It also runs update for SDK API level 18, latest SDK tools, latest platform-tools and build-tools version 23.0.3
+# It also runs update for SDK API level 21, latest SDK tools, latest platform-tools and build-tools version 23.0.3
 
 # Build-tools version 23.0.3 is the latest usable version for Red Hat 6. Newer version of build-tools, version 24.x.x, requires GLIBC_2.14, which is not available in Red Hat 6.
 
 # Android 16 is the minimum requirement for Qt 5.7 applications, but we need something more recent than that for building Qt itself.
-# E.g The Bluetooth features that require Android 18 will disable themselves dynamically when running on an Android 16 device.
-# That's why we need to use Andoid-18 API version and decision was made to use it also with Qt 5.6.
+# E.g The Bluetooth features that require Android 21 will disable themselves dynamically when running on an Android 16 device.
+# That's why we need to use Andoid-21 API version in Qt 5.9.
 
 set -e
 targetFolder="/opt/android"
@@ -50,7 +50,7 @@ baseUrl="http://ci-files01-hki.ci.local/input/android"
 # SDK
 sdkVersion="android-sdk_r24.4.1-linux.tgz"
 sdkBuildToolsVersion="23.0.3"
-sdkApiLevel="android-18"
+sdkApiLevel="android-21"
 sdkUrl="$baseUrl/$sdkVersion"
 sdkSha1="725bb360f0f7d04eaccff5a2d57abdd49061326d"
 sdkTargetFile="$targetFolder/$sdkVersion"
@@ -95,7 +95,7 @@ InstallAndroidPackage $targetFolder $sdkVersion $sdkUrl $sdkSha1 $sdkTargetFile 
 echo "Installing Android NDK version $ndkVersion..."
 InstallAndroidPackage $targetFolder $ndkVersion $ndkUrl $ndkSha1 $ndkTargetFile "$ndkExtract" $ndkFolderName $ndkName
 
-# run update for Android SDK and install SDK API version 18, latest SDK tools, platform-tools and build-tools
-echo "Running Android SDK update for API version 18, SDK-tools, platform-tools and build-tools-$sdkBuildToolsVersion..."
+# run update for Android SDK and install SDK API version 21, latest SDK tools, platform-tools and build-tools
+echo "Running Android SDK update for API version 21, SDK-tools, platform-tools and build-tools-$sdkBuildToolsVersion..."
 echo "y" |$targetFolder/sdk/tools/android update sdk --no-ui --all --filter $sdkApiLevel,tools,platform-tools,build-tools-$sdkBuildToolsVersion || echo "Failed to run update"
 
