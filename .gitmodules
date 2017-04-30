@@ -18,3 +18,10 @@
 	url = ../qtimageformats.git
 	branch = 5.6
 	status = addon
+[submodule "qtcharts"]
+	depends = qtbase
+	recommends = qtdeclarative qtmultimedia
+	path = qtcharts
+	url = ../qtcharts.git
+	branch = 5.6
+
